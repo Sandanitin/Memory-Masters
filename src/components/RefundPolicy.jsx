@@ -17,7 +17,7 @@ const RefundPolicy = () => {
                             className="text-center text-white"
                         >
                             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                                Refund Policy
+                                Cancellation & Refunds
                             </h1>
                             <p className="text-white/80 text-lg">
                                 Last Updated: December 8, 2025
@@ -37,39 +37,42 @@ const RefundPolicy = () => {
                         >
                             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                                 <p className="text-gray-700 mb-8 text-lg">
-                                    At Memory Masters, we strive to provide high-quality educational services. This Refund Policy outlines the conditions under which refunds may be requested and processed.
+                                    We're committed to making our workshop worthwhile for every participant. If you're not satisfied, here's how we handle cancellations and refunds:
                                 </p>
 
-                                {/* Refund Eligibility */}
+                                {/* Refund Policy Points */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     className="mb-8"
                                 >
-                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
-                                            1
-                                        </span>
-                                        Refund Eligibility
-                                    </h2>
-                                    <div className="pl-10 space-y-4">
+                                    <div className="space-y-4">
                                         <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
-                                            <p className="font-semibold text-green-800 mb-2">✓ Full Refund Available</p>
+                                            <p className="font-semibold text-green-800 mb-2">✓ Full Refund - Cancel Early</p>
                                             <p className="text-gray-700">
-                                                Refund requests made <strong>before the first session</strong> of the workshop or training program will receive a 100% refund, minus any payment processing fees.
+                                                Cancel up to <strong>48 hours before the start date</strong> – you'll receive a full refund (taxes and GST are non‑recoverable).
                                             </p>
                                         </div>
-                                        <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
-                                            <p className="font-semibold text-yellow-800 mb-2">⚠ Partial Refund</p>
-                                            <p className="text-gray-700">
-                                                Refund requests made <strong>within 24 hours of the first session</strong> may be eligible for a 50% refund at our discretion, considering the circumstances.
-                                            </p>
-                                        </div>
+
                                         <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
-                                            <p className="font-semibold text-red-800 mb-2">✗ No Refund</p>
+                                            <p className="font-semibold text-red-800 mb-2">✗ No Refund - Excessive Absences</p>
                                             <p className="text-gray-700">
-                                                No refunds will be provided after <strong>24 hours of the first session</strong> or after completion of the program.
+                                                Miss more than one day without notice – no refund will be issued.
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                            <p className="font-semibold text-blue-800 mb-2">🎓 Free Follow-Up Session</p>
+                                            <p className="text-gray-700">
+                                                Didn't pick up the skills? Contact us within <strong>3 days of the final session</strong> for a free one‑on‑one follow‑up.
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                                            <p className="font-semibold text-yellow-800 mb-2">⚠ Refund After Follow-Up</p>
+                                            <p className="text-gray-700">
+                                                Still not satisfied after the extra session – you may request a refund of the workshop fee minus taxes and GST, processed within <strong>5‑7 business days</strong>.
                                             </p>
                                         </div>
                                     </div>
@@ -85,105 +88,33 @@ const RefundPolicy = () => {
                                 >
                                     <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
                                         <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
-                                            2
+                                            📧
                                         </span>
                                         How to Request a Refund
                                     </h2>
-                                    <div className="pl-10 space-y-3 text-gray-700">
-                                        <p>To request a refund, please follow these steps:</p>
-                                        <ol className="list-decimal list-inside space-y-2 ml-4">
-                                            <li>Contact us via email at <a href="mailto:contact@memorymasters.com" className="text-purple-600 hover:text-purple-700 font-semibold">contact@memorymasters.com</a></li>
-                                            <li>Include your full name, registration details, and reason for refund request</li>
-                                            <li>Provide proof of payment (transaction ID or receipt)</li>
-                                            <li>Submit your request within the eligible timeframe</li>
-                                        </ol>
-                                    </div>
-                                </motion.div>
-
-                                {/* Processing Time */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 }}
-                                    className="mb-8"
-                                >
-                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
-                                            3
-                                        </span>
-                                        Processing Time
-                                    </h2>
-                                    <p className="pl-10 text-gray-700">
-                                        Approved refunds will be processed within <strong>7-10 business days</strong>. The refund will be credited to the original payment method used during registration. Please note that it may take additional time for the refund to appear in your account, depending on your bank or payment provider.
-                                    </p>
-                                </motion.div>
-
-                                {/* Special Circumstances */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.3 }}
-                                    className="mb-8"
-                                >
-                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
-                                            4
-                                        </span>
-                                        Special Circumstances
-                                    </h2>
-                                    <div className="pl-10 space-y-3 text-gray-700">
-                                        <p>We understand that exceptional circumstances may arise. In cases of:</p>
-                                        <ul className="list-disc list-inside space-y-2 ml-4">
-                                            <li>Medical emergencies (requires documentation)</li>
-                                            <li>Technical issues on our end preventing service delivery</li>
-                                            <li>Cancellation of workshop by Memory Masters</li>
-                                        </ul>
-                                        <p className="mt-3">
-                                            We will review refund requests on a case-by-case basis and may offer alternative solutions such as rescheduling or account credits.
+                                    <div className="pl-10 text-gray-700 space-y-3">
+                                        <p>
+                                            To request a refund or support, email <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memorymasters.in</a> with "<strong>Refund Request – Workshop</strong>" and your order number.
                                         </p>
-                                    </div>
-                                </motion.div>
-
-                                {/* Non-Refundable */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.4 }}
-                                    className="mb-8"
-                                >
-                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
-                                            5
-                                        </span>
-                                        Non-Refundable Items
-                                    </h2>
-                                    <div className="pl-10 text-gray-700">
-                                        <p className="mb-3">The following are not eligible for refunds:</p>
-                                        <ul className="list-disc list-inside space-y-2 ml-4">
-                                            <li>Downloadable materials or resources already accessed</li>
-                                            <li>Completed programs or workshops</li>
-                                            <li>Payment processing fees</li>
-                                            <li>Special promotional offers or discounted programs (unless specified otherwise)</li>
-                                        </ul>
+                                        <p>
+                                            We'll get back to you within <strong>24 hours</strong>.
+                                        </p>
                                     </div>
                                 </motion.div>
 
                                 {/* Contact */}
                                 <div className="mt-12 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-100">
                                     <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">
-                                        Questions About Refunds?
+                                        Need Help?
                                     </h3>
                                     <p className="text-gray-700 mb-4">
-                                        If you have any questions about our Refund Policy or need assistance with a refund request, please contact us:
+                                        If you have any questions about our Refund Policy, please contact us:
                                     </p>
                                     <div className="space-y-2 text-gray-700">
                                         <p className="flex items-center gap-2">
                                             <span className="font-semibold">Email:</span>
-                                            <a href="mailto:contact@memorymasters.com" className="text-purple-600 hover:text-purple-700">
-                                                contact@memorymasters.com
+                                            <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700">
+                                                support@memorymasters.in
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">

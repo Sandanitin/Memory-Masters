@@ -12,8 +12,9 @@ const Footer = () => {
         { name: 'About', href: '/about', isRoute: true },
         { name: 'Privacy Policy', href: '/privacy-policy', isRoute: true },
         { name: 'Terms & Conditions', href: '/terms-conditions', isRoute: true },
-        { name: 'Refund Policy', href: '/refund-policy', isRoute: true },
-        { name: 'FAQ', href: '#faq' }
+        { name: 'Cancellation & Refunds', href: '/refund-policy', isRoute: true },
+        { name: 'FAQ', href: '#faq' },
+        { name: 'Shipping', href: '/shipping', isRoute: true }
     ];
 
     const socialLinks = [
@@ -102,7 +103,7 @@ const Footer = () => {
                         <div>
                             <div className="flex items-center space-x-3 mb-6">
                                 <img
-                                    src="/logo.jpg"
+                                    src="/assets/MM Logo-3.png"
                                     alt="Memory Masters Logo"
                                     className="h-12 w-auto object-contain"
                                 />
@@ -163,8 +164,8 @@ const Footer = () => {
                                     <span className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-lg">📧</span>
                                     <div>
                                         <p className="text-sm text-gray-500">Email</p>
-                                        <a href="mailto:contact@memorymasters.com" className="text-gray-300 hover:text-white transition-colors">
-                                            contact@memorymasters.com
+                                        <a href="mailto:memorymasters.in@gmail.com" className="text-gray-300 hover:text-white transition-colors">
+                                            memorymasters.in@gmail.com
                                         </a>
                                     </div>
                                 </li>

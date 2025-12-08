@@ -73,7 +73,7 @@ const Navbar = () => {
                         >
                             <div className="relative">
                                 <img
-                                    src="/logo.jpg"
+                                    src="/assets/MM Logo-3.png"
                                     alt="Memory Masters Logo"
                                     className="h-16 w-auto object-contain"
                                 />
@@ -83,7 +83,7 @@ const Navbar = () => {
                                     ? 'bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'
                                     : 'text-white'
                                     }`}>
-                                    Memory Masters
+
                                 </span>
                             </div>
                         </motion.div>

@@ -4,41 +4,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const PrivacyPolicy = () => {
-    const sections = [
-        {
-            title: 'Information We Collect',
-            content: 'We collect information that you provide directly to us, including name, email address, phone number, and payment information when you register for our programs. We also collect information about your usage of our services to improve your experience.'
-        },
-        {
-            title: 'How We Use Your Information',
-            content: 'We use the information we collect to provide, maintain, and improve our services, process your registrations and payments, send you technical notices and support messages, and communicate with you about products, services, and events.'
-        },
-        {
-            title: 'Information Sharing',
-            content: 'We do not sell, trade, or rent your personal information to third parties. We may share your information with service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.'
-        },
-        {
-            title: 'Data Security',
-            content: 'We implement appropriate technical and organizational measures to protect your personal information against unauthorized or unlawful processing, accidental loss, destruction, or damage.'
-        },
-        {
-            title: 'Your Rights',
-            content: 'You have the right to access, update, or delete your personal information at any time. You may also opt-out of receiving promotional communications from us by following the unsubscribe instructions in those communications.'
-        },
-        {
-            title: 'Cookies',
-            content: 'We use cookies and similar tracking technologies to track activity on our service and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.'
-        },
-        {
-            title: 'Children\'s Privacy',
-            content: 'Our services are intended for use by students of all ages under parental guidance. We do not knowingly collect personal information from children under 13 without parental consent.'
-        },
-        {
-            title: 'Changes to This Policy',
-            content: 'We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.'
-        }
-    ];
-
     return (
         <>
             <Navbar />
@@ -72,43 +37,119 @@ const PrivacyPolicy = () => {
                         >
                             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                                 <p className="text-gray-700 mb-8 text-lg">
-                                    At Memory Masters, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard your data.
+                                    At Memory Masters, we take the privacy of our participants seriously. This Privacy Policy explains how we collect, use, and protect the personal information you provide when you register for our workshop.
                                 </p>
 
-                                <div className="space-y-8">
-                                    {sections.map((section, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, x: -20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: index * 0.1 }}
-                                        >
-                                            <h2 className="text-2xl font-heading font-bold text-gray-900 mb-3 flex items-center gap-2">
-                                                <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
-                                                    {index + 1}
-                                                </span>
-                                                {section.title}
-                                            </h2>
-                                            <p className="text-gray-600 leading-relaxed pl-10">
-                                                {section.content}
-                                            </p>
-                                        </motion.div>
-                                    ))}
-                                </div>
+                                {/* What We Collect */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    className="mb-8"
+                                >
+                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
+                                            1
+                                        </span>
+                                        Information We Collect
+                                    </h2>
+                                    <p className="text-gray-600 leading-relaxed pl-10">
+                                        We collect only the data needed to run the workshop: name, email address, phone number, and payment details.
+                                    </p>
+                                </motion.div>
 
-                                <div className="mt-12 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-100">
+                                {/* How We Use It */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 }}
+                                    className="mb-8"
+                                >
+                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
+                                            2
+                                        </span>
+                                        How We Use Your Information
+                                    </h2>
+                                    <div className="pl-10 space-y-3 text-gray-700">
+                                        <p>This information is used solely for the following purposes:</p>
+                                        <ul className="list-disc list-inside space-y-2 ml-4">
+                                            <li>To confirm your registration and send you workshop materials</li>
+                                            <li>To communicate schedule changes, reminders, and post‑workshop follow‑up sessions</li>
+                                            <li>To process payments and issue refunds according to our Cancellation & Refund Policy</li>
+                                        </ul>
+                                    </div>
+                                </motion.div>
+
+                                {/* Data Sharing */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.2 }}
+                                    className="mb-8"
+                                >
+                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
+                                            3
+                                        </span>
+                                        We Never Share Your Data
+                                    </h2>
+                                    <div className="pl-10 text-gray-700 space-y-3">
+                                        <p className="font-semibold text-gray-900">
+                                            We never sell, rent, or otherwise share your personal data with third parties.
+                                        </p>
+                                        <p>
+                                            The only exceptions are when required by law or when we engage trusted service providers (e.g., payment processors) who handle data under strict confidentiality agreements and only for the purpose of completing the transaction.
+                                        </p>
+                                    </div>
+                                </motion.div>
+
+                                {/* Data Security */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.3 }}
+                                    className="mb-8"
+                                >
+                                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
+                                            4
+                                        </span>
+                                        Data Security
+                                    </h2>
+                                    <p className="text-gray-600 leading-relaxed pl-10">
+                                        Your data is stored securely on encrypted servers. You may request to view, update, or delete your information at any time by contacting <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memorymasters.in</a>.
+                                    </p>
+                                </motion.div>
+
+                                {/* Consent */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-l-4 border-purple-600"
+                                >
+                                    <p className="text-gray-700 font-medium">
+                                        By registering for the workshop, you consent to the collection and use of your data as outlined above.
+                                    </p>
+                                </motion.div>
+
+                                {/* Contact */}
+                                <div className="mt-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-100">
                                     <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">
-                                        Contact Us
+                                        Questions About Privacy?
                                     </h3>
                                     <p className="text-gray-700 mb-4">
-                                        If you have any questions about this Privacy Policy, please contact us:
+                                        If you have any questions about our privacy practices, please reach out to us—we're happy to help.
                                     </p>
                                     <div className="space-y-2 text-gray-700">
                                         <p className="flex items-center gap-2">
                                             <span className="font-semibold">Email:</span>
-                                            <a href="mailto:contact@memorymasters.com" className="text-purple-600 hover:text-purple-700">
-                                                contact@memorymasters.com
+                                            <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700">
+                                                support@memorymasters.in
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">
