@@ -111,7 +111,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                             </div>
 
                             {/* Content */}
-                            <div className="p-6">
+                            <div className="p-4 md:p-6">
                                 {/* Form Section */}
                                 <div>
                                     <h3 className="text-lg font-heading font-bold text-gray-900 mb-4">
