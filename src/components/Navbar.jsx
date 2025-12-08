@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
+import RegistrationModal from './RegistrationModal';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -68,15 +70,18 @@ const Navbar = () => {
                         {/* Logo */}
                         <motion.div
                             className="flex items-center gap-3 cursor-pointer"
-                            whileHover={{ scale: 1.02 }}
+                            whileHover={{ scale: 1.05 }}
                             onClick={() => navigate('/')}
                         >
                             <div className="relative">
-                                <img
-                                    src="/assets/MM Logo-3.png"
-                                    alt="Memory Masters Logo"
-                                    className="h-20 w-auto object-contain"
-                                />
+                                {/* Professional highlight effect */}
+                                <div className="bg-white rounded-2xl p-3 shadow-lg border-2 border-yellow-400 hover:border-orange-400 transition-all">
+                                    <img
+                                        src="/assets/MM Logo-3.png"
+                                        alt="Memory Masters Logo"
+                                        className="h-20 w-auto object-contain"
+                                    />
+                                </div>
                             </div>
                         </motion.div>
 
@@ -87,12 +92,12 @@ const Navbar = () => {
                                     key={link.id || link.label}
                                     onClick={() => handleNavigation(link)}
                                     className={`px-4 py-2 rounded-lg font-medium transition-all relative group ${link.label === 'Workshop'
-                                            ? isScrolled
-                                                ? 'bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold shadow-md'
-                                                : 'bg-white/20 backdrop-blur-sm text-white font-bold'
-                                            : isScrolled
-                                                ? 'text-gray-700 hover:text-purple-600'
-                                                : 'text-white/80 hover:text-white'
+                                        ? isScrolled
+                                            ? 'bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold shadow-md'
+                                            : 'bg-white/20 backdrop-blur-sm text-white font-bold'
+                                        : isScrolled
+                                            ? 'text-gray-700 hover:text-purple-600'
+                                            : 'text-white/80 hover:text-white'
                                         }`}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -108,6 +113,7 @@ const Navbar = () => {
                         {/* CTA Button */}
                         <div className="flex items-center gap-4">
                             <motion.button
+                                onClick={() => setIsRegistrationOpen(true)}
                                 className="hidden md:flex items-center gap-2 relative overflow-hidden bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-orange-500/30 text-lg"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -217,6 +223,12 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Registration Modal */}
+            <RegistrationModal
+                isOpen={isRegistrationOpen}
+                onClose={() => setIsRegistrationOpen(false)}
+            />
         </>
     );
 };

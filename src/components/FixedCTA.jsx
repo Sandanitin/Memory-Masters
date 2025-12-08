@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import RegistrationModal from './RegistrationModal';
 
 const FixedCTA = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [isScrollingDown, setIsScrollingDown] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -68,6 +70,7 @@ const FixedCTA = () => {
                             {/* CTA Button */}
                             <div className="flex items-center gap-3">
                                 <motion.button
+                                    onClick={() => setIsRegistrationOpen(true)}
                                     className="relative overflow-hidden bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-xl shadow-lg shadow-orange-500/30 whitespace-nowrap"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -96,6 +99,12 @@ const FixedCTA = () => {
                     </div>
                 </motion.div>
             )}
+
+            {/* Registration Modal */}
+            <RegistrationModal
+                isOpen={isRegistrationOpen}
+                onClose={() => setIsRegistrationOpen(false)}
+            />
         </AnimatePresence>
     );
 };

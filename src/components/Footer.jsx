@@ -102,11 +102,13 @@ const Footer = () => {
                         {/* Brand */}
                         <div>
                             <div className="flex items-center space-x-3 mb-6">
-                                <img
-                                    src="/assets/MM Logo-3.png"
-                                    alt="Memory Masters Logo"
-                                    className="h-12 w-auto object-contain"
-                                />
+                                <div className="bg-white rounded-2xl p-3 shadow-lg border-2 border-yellow-400 hover:border-orange-400 transition-all">
+                                    <img
+                                        src="/assets/MM Logo-3.png"
+                                        alt="Memory Masters Logo"
+                                        className="h-12 w-auto object-contain"
+                                    />
+                                </div>
                             </div>
                             <p className="text-gray-400 mb-6">
                                 Founded by Kishore Kaki, Memory Masters is dedicated to empowering students with scientifically-backed memory strategies.

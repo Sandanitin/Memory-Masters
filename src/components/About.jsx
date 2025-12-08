@@ -94,7 +94,7 @@ const About = () => {
                                     <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 rounded-3xl blur opacity-50" />
                                     <div className="relative bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl overflow-hidden shadow-2xl">
                                         <img
-                                            src="/assets/instructor-kishore-kaki.png"
+                                            src="/assets/instructor-kimi-shah.png"
                                             alt="Kishore Kaki - Founder"
                                             className="w-full h-[400px] object-cover object-top"
                                         />
