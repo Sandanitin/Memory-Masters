@@ -144,7 +144,7 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.3 }}
                             className="text-base md:text-lg text-white/80 mb-6 font-medium max-w-xl mx-auto lg:mx-0"
                         >
-                            Supercharge Your Child&apos;s Memory & Retain Everything They Learn!
+                            Empowering students with scientifically-backed memory strategies. Transform the way you approach textbooks, exams, and lifelong knowledge.
                             Join <span className="text-yellow-400 font-bold">100,000+</span> Students Who Transformed Their Academic Performance.
                         </motion.p>
 
@@ -295,22 +295,18 @@ const Hero = () => {
                             transition={{ duration: 0.5, delay: 1.2 }}
                             className="absolute bottom-32 left-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl px-4 py-3 shadow-xl z-40"
                             whileHover={{ scale: 1.1 }}
-                            animate={{
-                                y: [0, -10, 0],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
                         >
-                            <div className="flex items-center gap-2 text-white">
+                            <motion.div
+                                className="flex items-center gap-2 text-white"
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            >
                                 <span className="text-2xl">📈</span>
                                 <div>
                                     <p className="text-lg font-black">47%</p>
                                     <p className="text-xs opacity-90">Focus Boost</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </motion.div>
 
                         <motion.div

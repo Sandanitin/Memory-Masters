@@ -72,8 +72,8 @@ const Instructor = () => {
                             {/* Image Container */}
                             <div className="relative bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl overflow-hidden shadow-2xl">
                                 <img
-                                    src="/assets/instructor-kimi-shah.png"
-                                    alt="Ms. Kimi Shah - International Memory Coach"
+                                    src="/assets/instructor-kishore-kaki.png"
+                                    alt="Kishore Kaki - Founder & Lead Trainer"
                                     className="w-full h-[500px] object-cover object-top"
                                 />
 
@@ -89,10 +89,10 @@ const Instructor = () => {
                                         transition={{ delay: 0.3 }}
                                     >
                                         <h3 className="text-3xl font-heading font-bold text-white mb-2">
-                                            Ms. KIMI SHAH
+                                            KISHORE KAKI
                                         </h3>
                                         <p className="text-white/90 font-medium">
-                                            International Memory & Study Skills Coach
+                                            Founder & Lead Trainer
                                         </p>
                                     </motion.div>
                                 </div>
@@ -189,12 +189,12 @@ const Instructor = () => {
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     <span className="relative z-10 flex items-center justify-center gap-2">
-                                        ✨ Learn from Ms. Kimi Shah
+                                        ✨ Learn from Kishore Kaki
                                     </span>
                                 </motion.button>
 
                                 <p className="text-center text-sm text-gray-500 mt-4">
-                                    Memory & Academics Expert • Mumbai University Rank Holder
+                                    Founder & Lead Trainer • Memory Transformation Expert
                                 </p>
                             </div>
                         </div>

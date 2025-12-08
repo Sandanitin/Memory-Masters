@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -13,19 +16,39 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsMobileMenuOpen(false);
+    const handleNavigation = (link) => {
+        setIsMobileMenuOpen(false);
+
+        if (link.to) {
+            // Navigate to route
+            navigate(link.to);
+        } else if (link.id) {
+            // If we're not on home page, go home first
+            if (location.pathname !== '/') {
+                navigate('/');
+                setTimeout(() => {
+                    const element = document.getElementById(link.id);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            } else {
+                // Already on home, just scroll
+                const element = document.getElementById(link.id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         }
     };
 
     const navLinks = [
-        { id: 'home', label: 'Home' },
+        { id: 'home', label: 'Home', to: '/' },
+        { id: 'services', label: 'Services' },
         { id: 'benefits', label: 'Benefits' },
         { id: 'testimonials', label: 'Testimonials' },
         { id: 'workshop', label: 'Workshop' },
+        { label: 'About', to: '/about' },
         { id: 'faq', label: 'FAQ' }
     ];
 
@@ -33,8 +56,8 @@ const Navbar = () => {
         <>
             <motion.nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                        ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-purple-500/5'
-                        : 'bg-transparent'
+                    ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-purple-500/5'
+                    : 'bg-transparent'
                     }`}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -46,18 +69,19 @@ const Navbar = () => {
                         <motion.div
                             className="flex items-center gap-3 cursor-pointer"
                             whileHover={{ scale: 1.02 }}
-                            onClick={() => scrollToSection('home')}
+                            onClick={() => navigate('/')}
                         >
                             <div className="relative">
-                                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 via-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30">
-                                    <span className="text-white text-2xl font-black">M</span>
-                                </div>
-                                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 -z-10" />
+                                <img
+                                    src="/logo.jpg"
+                                    alt="Memory Masters Logo"
+                                    className="h-12 w-auto object-contain"
+                                />
                             </div>
                             <div className="hidden sm:block">
                                 <span className={`text-xl font-heading font-bold ${isScrolled
-                                        ? 'bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'
-                                        : 'text-white'
+                                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'
+                                    : 'text-white'
                                     }`}>
                                     Memory Masters
                                 </span>
@@ -68,11 +92,11 @@ const Navbar = () => {
                         <div className="hidden lg:flex items-center gap-1">
                             {navLinks.map((link) => (
                                 <motion.button
-                                    key={link.id}
-                                    onClick={() => scrollToSection(link.id)}
+                                    key={link.id || link.label}
+                                    onClick={() => handleNavigation(link)}
                                     className={`px-4 py-2 rounded-lg font-medium transition-all relative group ${isScrolled
-                                            ? 'text-gray-700 hover:text-purple-600'
-                                            : 'text-white/80 hover:text-white'
+                                        ? 'text-gray-700 hover:text-purple-600'
+                                        : 'text-white/80 hover:text-white'
                                         }`}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -168,8 +192,8 @@ const Navbar = () => {
                                 <div className="space-y-2">
                                     {navLinks.map((link, index) => (
                                         <motion.button
-                                            key={link.id}
-                                            onClick={() => scrollToSection(link.id)}
+                                            key={link.id || link.label}
+                                            onClick={() => handleNavigation(link)}
                                             className="w-full text-left px-4 py-3 rounded-xl text-gray-700 font-medium hover:bg-purple-50 hover:text-purple-600 transition-colors"
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}

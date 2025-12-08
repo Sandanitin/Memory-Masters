@@ -10,6 +10,11 @@ import ABCMemory from './components/ABCMemory';
 import Instructor from './components/Instructor';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Services from './components/Services';
+import About from './components/About';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsConditions from './components/TermsConditions';
+import RefundPolicy from './components/RefundPolicy';
 
 function App() {
   return (
@@ -23,6 +28,7 @@ function App() {
               <Navbar />
               <Hero />
               <Stats />
+              <Services />
               <Testimonials />
               <Benefits />
               <ABCMemory />
@@ -32,6 +38,10 @@ function App() {
             </>
           }
         />
+        <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
     </div>
   );
