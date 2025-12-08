@@ -16,11 +16,13 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsConditions from './components/TermsConditions';
 import RefundPolicy from './components/RefundPolicy';
 import Shipping from './components/Shipping';
+import FixedCTA from './components/FixedCTA';
 
 function App() {
   return (
     <div className="App">
       <Toaster position="bottom-right" />
+      <FixedCTA />
       <Routes>
         <Route
           path="/"
