@@ -16,6 +16,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsConditions from './components/TermsConditions';
 import RefundPolicy from './components/RefundPolicy';
 import Shipping from './components/Shipping';
+import Contact from './components/Contact';
 import FixedCTA from './components/FixedCTA';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/shipping" element={<Shipping />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

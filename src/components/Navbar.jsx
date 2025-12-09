@@ -55,6 +55,7 @@ const Navbar = () => {
         { id: 'testimonials', label: 'Testimonials' },
         { id: 'workshop', label: 'Workshop' },
         { label: 'About', to: '/about' },
+        { label: 'Contact', to: '/contact' },
         { id: 'faq', label: 'FAQ' }
     ];
 

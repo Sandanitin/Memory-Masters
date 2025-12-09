@@ -10,6 +10,7 @@ const Footer = () => {
         { name: 'Testimonials', href: '#testimonials' },
         { name: 'Workshop', href: '#workshop' },
         { name: 'About', href: '/about', isRoute: true },
+        { name: 'Contact', href: '/contact', isRoute: true },
         { name: 'Privacy Policy', href: '/privacy-policy', isRoute: true },
         { name: 'Terms & Conditions', href: '/terms-conditions', isRoute: true },
         { name: 'Cancellation & Refunds', href: '/refund-policy', isRoute: true },

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
+import { sendPaymentReceipt } from '../services/emailService';
+import { saveToGoogleSheets } from '../services/sheetsService';
 
 const RegistrationModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Validation
@@ -42,23 +44,109 @@ const RegistrationModal = ({ isOpen, onClose }) => {
             return;
         }
 
-        console.log('Form Data:', formData);
-        toast.success('Registration successful! Redirecting to payment...');
+        // Initialize Razorpay payment
+        const razorpayKeyId = import.meta.env.VITE_RAZORPAY_KEY_ID;
 
-        // Here you would integrate with your payment gateway
-        // For now, just close the modal after a delay
-        setTimeout(() => {
-            onClose();
-            // Reset form
-            setFormData({
-                firstName: '',
-                lastName: '',
-                email: '',
-                mobile: '',
-                standard: 'Grade 1st - 7th',
-                city: ''
-            });
-        }, 2000);
+        if (!razorpayKeyId) {
+            toast.error('Payment gateway not configured. Please contact support.');
+            console.error('Razorpay Key ID not found in environment variables');
+            return;
+        }
+
+        const options = {
+            key: razorpayKeyId,
+            amount: 69900, // Amount in paise (₹699)
+            currency: 'INR',
+            name: 'Memory MASTERS',
+            description: 'Memory MASTERS Basic Registration',
+            image: '/assets/MM Logo-3.png',
+            handler: async function (response) {
+                // Payment successful
+                console.log('Payment successful:', response);
+
+                const paymentId = response.razorpay_payment_id;
+                const customerName = `${formData.firstName} ${formData.lastName}`;
+
+                // Show success message
+                toast.success('Payment successful! Processing your registration...');
+
+                try {
+                    // Send payment receipt email
+                    await sendPaymentReceipt({
+                        customerName: customerName,
+                        customerEmail: formData.email,
+                        customerMobile: formData.mobile,
+                        paymentId: paymentId,
+                        amount: 699,
+                        standard: formData.standard,
+                        city: formData.city
+                    });
+
+                    toast.success('Payment receipt sent to your email!');
+                } catch (emailError) {
+                    console.error('Error sending email:', emailError);
+                    toast.error('Payment successful, but failed to send email receipt.');
+                }
+
+                try {
+                    // Save to Google Sheets
+                    await saveToGoogleSheets({
+                        firstName: formData.firstName,
+                        lastName: formData.lastName,
+                        email: formData.email,
+                        mobile: formData.mobile,
+                        standard: formData.standard,
+                        city: formData.city,
+                        paymentId: paymentId,
+                        amount: 699
+                    });
+
+                    console.log('Payment data saved to Google Sheets');
+                } catch (sheetsError) {
+                    console.error('Error saving to Google Sheets:', sheetsError);
+                    // Don't show error to user as payment was successful
+                }
+
+                // Close modal and reset form after a delay
+                setTimeout(() => {
+                    onClose();
+                    setFormData({
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        mobile: '',
+                        standard: 'Grade 1st - 7th',
+                        city: ''
+                    });
+                }, 2000);
+            },
+            prefill: {
+                name: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email,
+                contact: formData.mobile
+            },
+            notes: {
+                standard: formData.standard,
+                city: formData.city
+            },
+            theme: {
+                color: '#9333ea' // Purple color matching the theme
+            },
+            modal: {
+                ondismiss: function () {
+                    toast.error('Payment cancelled');
+                }
+            }
+        };
+
+        const rzp = new window.Razorpay(options);
+
+        rzp.on('payment.failed', function (response) {
+            console.error('Payment failed:', response.error);
+            toast.error(`Payment failed: ${response.error.description}`);
+        });
+
+        rzp.open();
     };
 
     const standards = [
