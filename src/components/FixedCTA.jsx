@@ -76,7 +76,7 @@ const FixedCTA = () => {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <span className="relative z-10 flex items-center gap-1 md:gap-2 text-sm md:text-base lg:text-lg">
-                                        🚀 Register @ ₹699
+                                        🚀 Register @ ₹1
                                     </span>
                                     <motion.div
                                         className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400"

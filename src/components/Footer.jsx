@@ -83,7 +83,7 @@ const Footer = () => {
                             whileTap={{ scale: 0.95 }}
                         >
                             <span className="relative z-10 flex items-center gap-2">
-                                🚀 Register Now @ ₹699
+                                🚀 Register Now @ ₹1
                             </span>
                             <motion.div
                                 className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400"

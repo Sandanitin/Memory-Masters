@@ -174,7 +174,7 @@ const Benefits = () => {
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-3">
                                     <span className="text-2xl">🎟️</span>
-                                    Buy Now @ <span className="line-through opacity-70">₹999</span> ₹699/-
+                                    Buy Now @ ₹1/-
                                 </span>
                                 <motion.div
                                     className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400"

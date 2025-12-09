@@ -27,8 +27,15 @@ export const sendPaymentReceipt = async (paymentData) => {
         // Check if EmailJS is configured
         if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
             console.warn('EmailJS not configured. Skipping email send.');
+            console.warn('Service ID:', EMAILJS_SERVICE_ID);
+            console.warn('Template ID:', EMAILJS_TEMPLATE_ID);
+            console.warn('Public Key:', EMAILJS_PUBLIC_KEY ? 'Present' : 'Missing');
             return { success: false, message: 'EmailJS not configured' };
         }
+
+        console.log('Sending email with EmailJS...');
+        console.log('Service ID:', EMAILJS_SERVICE_ID);
+        console.log('Template ID:', EMAILJS_TEMPLATE_ID);
 
         // Format the date
         const transactionDate = new Date().toLocaleString('en-IN', {
@@ -39,6 +46,7 @@ export const sendPaymentReceipt = async (paymentData) => {
 
         // Prepare template parameters
         const templateParams = {
+            to_email: paymentData.customerEmail, // Recipient email
             customer_name: paymentData.customerName,
             customer_email: paymentData.customerEmail,
             customer_mobile: paymentData.customerMobile,
@@ -49,6 +57,8 @@ export const sendPaymentReceipt = async (paymentData) => {
             city: paymentData.city
         };
 
+        console.log('Template parameters:', templateParams);
+
         // Send email using EmailJS
         const response = await emailjs.send(
             EMAILJS_SERVICE_ID,
@@ -56,10 +66,15 @@ export const sendPaymentReceipt = async (paymentData) => {
             templateParams
         );
 
-        console.log('Payment receipt email sent successfully:', response);
+        console.log('✅ Payment receipt email sent successfully:', response);
         return { success: true, response };
     } catch (error) {
-        console.error('Error sending payment receipt email:', error);
+        console.error('❌ Error sending payment receipt email:', error);
+        console.error('Error details:', {
+            message: error.message,
+            text: error.text,
+            status: error.status
+        });
         throw error;
     }
 };

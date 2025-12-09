@@ -55,7 +55,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
 
         const options = {
             key: razorpayKeyId,
-            amount: 69900, // Amount in paise (₹699)
+            amount: 100, // Amount in paise (₹1)
             currency: 'INR',
             name: 'Memory MASTERS',
             description: 'Memory MASTERS Basic Registration',
@@ -77,7 +77,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                         customerEmail: formData.email,
                         customerMobile: formData.mobile,
                         paymentId: paymentId,
-                        amount: 699,
+                        amount: 1,
                         standard: formData.standard,
                         city: formData.city
                     });
@@ -98,7 +98,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                         standard: formData.standard,
                         city: formData.city,
                         paymentId: paymentId,
-                        amount: 699
+                        amount: 1
                     });
 
                     console.log('Payment data saved to Google Sheets');
@@ -341,14 +341,14 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                                         <div className="space-y-3 mb-6">
                                             <div className="flex justify-between text-gray-700">
                                                 <span>Subtotal (1 item)</span>
-                                                <span>₹ 99.00</span>
+                                                <span>₹ 1.00</span>
                                             </div>
                                         </div>
 
                                         <div className="border-t pt-4">
                                             <div className="flex justify-between text-xl font-bold text-gray-900">
                                                 <span>Order Total</span>
-                                                <span>₹ 99.00</span>
+                                                <span>₹ 1.00</span>
                                             </div>
                                         </div>
 
