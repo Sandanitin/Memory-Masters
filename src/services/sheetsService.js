@@ -25,15 +25,18 @@ export const saveToGoogleSheets = async (paymentData) => {
 
         // Prepare data for Google Sheets
         const sheetData = {
-            timestamp: new Date().toISOString(),
-            firstName: paymentData.firstName,
-            lastName: paymentData.lastName,
-            email: paymentData.email,
-            mobile: paymentData.mobile,
+            customerName: `${paymentData.firstName} ${paymentData.lastName}`,
+            customerEmail: paymentData.email,
+            customerMobile: paymentData.mobile,
             standard: paymentData.standard,
             city: paymentData.city,
             paymentId: paymentData.paymentId,
-            amount: paymentData.amount
+            amount: paymentData.amount,
+            transactionDate: new Date().toLocaleString('en-IN', {
+                dateStyle: 'full',
+                timeStyle: 'short',
+                timeZone: 'Asia/Kolkata'
+            })
         };
 
         // Send data to Google Apps Script
