@@ -19,11 +19,11 @@ const TermsConditions = () => {
         },
         {
             title: 'Intellectual Property',
-            content: 'All Workshop materials are the exclusive property of Memory Masters. You may not copy, share, or sell any content without prior written consent.'
+            content: 'All Workshop materials are the exclusive property of Memory MASTERS. You may not copy, share, or sell any content without prior written consent.'
         },
         {
             title: 'Liability & Disclaimer',
-            content: 'Memory Masters is not liable for any indirect damages arising from participation. Results may vary; we cannot guarantee specific outcomes such as exam scores or memory improvements.'
+            content: 'Memory MASTERS is not liable for any indirect damages arising from participation. Results may vary; we cannot guarantee specific outcomes such as exam scores or memory improvements.'
         },
         {
             title: 'Governing Law',
@@ -68,7 +68,7 @@ const TermsConditions = () => {
                         >
                             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                                 <p className="text-gray-700 mb-8 text-lg">
-                                    These Terms & Conditions ("Terms") govern your participation in the Memory Masters workshop ("Workshop"), a 5‑day program designed to boost memory, focus, and learning skills. By registering, you agree to these Terms, our Privacy Policy, and the Cancellation & Refund Policy.
+                                    These Terms & Conditions ("Terms") govern your participation in the Memory MASTERS workshop ("Workshop"), a 5‑day program designed to boost memory, focus, and learning skills. By registering, you agree to these Terms, our Privacy Policy, and the Cancellation & Refund Policy.
                                 </p>
 
                                 <div className="space-y-8">
@@ -111,7 +111,7 @@ const TermsConditions = () => {
                                         Questions or Concerns?
                                     </h3>
                                     <p className="text-gray-700 mb-4">
-                                        For questions, email <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memorymasters.in</a>
+                                        For questions, email <a href="mailto:support@memoryMASTERS.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memoryMASTERS.in</a>
                                     </p>
                                     <div className="space-y-2 text-gray-700">
                                         <p className="flex items-center gap-2">

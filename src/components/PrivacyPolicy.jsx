@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
                         >
                             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                                 <p className="text-gray-700 mb-8 text-lg">
-                                    At Memory Masters, we take the privacy of our participants seriously. This Privacy Policy explains how we collect, use, and protect the personal information you provide when you register for our workshop.
+                                    At Memory MASTERS, we take the privacy of our participants seriously. This Privacy Policy explains how we collect, use, and protect the personal information you provide when you register for our workshop.
                                 </p>
 
                                 {/* What We Collect */}
@@ -121,7 +121,7 @@ const PrivacyPolicy = () => {
                                         Data Security
                                     </h2>
                                     <p className="text-gray-600 leading-relaxed pl-10">
-                                        Your data is stored securely on encrypted servers. You may request to view, update, or delete your information at any time by contacting <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memorymasters.in</a>.
+                                        Your data is stored securely on encrypted servers. You may request to view, update, or delete your information at any time by contacting <a href="mailto:support@memoryMASTERS.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memoryMASTERS.in</a>.
                                     </p>
                                 </motion.div>
 
@@ -148,8 +148,8 @@ const PrivacyPolicy = () => {
                                     <div className="space-y-2 text-gray-700">
                                         <p className="flex items-center gap-2">
                                             <span className="font-semibold">Email:</span>
-                                            <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700">
-                                                support@memorymasters.in
+                                            <a href="mailto:support@memoryMASTERS.in" className="text-purple-600 hover:text-purple-700">
+                                                support@memoryMASTERS.in
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">

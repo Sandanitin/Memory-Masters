@@ -85,7 +85,7 @@ const Navbar = () => {
                                 <div className="bg-white rounded-lg md:rounded-xl p-1.5 md:p-2 shadow-lg border-2 border-yellow-400 hover:border-orange-400 transition-all">
                                     <img
                                         src="/assets/MM Logo-3.png"
-                                        alt="Memory Masters Logo"
+                                        alt="Memory MASTERS Logo"
                                         className="h-10 md:h-14 w-auto object-contain"
                                     />
                                 </div>

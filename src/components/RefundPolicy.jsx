@@ -94,7 +94,7 @@ const RefundPolicy = () => {
                                     </h2>
                                     <div className="pl-10 text-gray-700 space-y-3">
                                         <p>
-                                            To request a refund or support, email <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memorymasters.in</a> with "<strong>Refund Request – Workshop</strong>" and your order number.
+                                            To request a refund or support, email <a href="mailto:support@memoryMASTERS.in" className="text-purple-600 hover:text-purple-700 font-semibold">support@memoryMASTERS.in</a> with "<strong>Refund Request – Workshop</strong>" and your order number.
                                         </p>
                                         <p>
                                             We'll get back to you within <strong>24 hours</strong>.
@@ -113,8 +113,8 @@ const RefundPolicy = () => {
                                     <div className="space-y-2 text-gray-700">
                                         <p className="flex items-center gap-2">
                                             <span className="font-semibold">Email:</span>
-                                            <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700">
-                                                support@memorymasters.in
+                                            <a href="mailto:support@memoryMASTERS.in" className="text-purple-600 hover:text-purple-700">
+                                                support@memoryMASTERS.in
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">

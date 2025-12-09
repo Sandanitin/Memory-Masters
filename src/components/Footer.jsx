@@ -105,13 +105,13 @@ const Footer = () => {
                                 <div className="bg-white rounded-2xl p-3 shadow-lg border-2 border-yellow-400 hover:border-orange-400 transition-all">
                                     <img
                                         src="/assets/MM Logo-3.png"
-                                        alt="Memory Masters Logo"
+                                        alt="Memory MASTERS Logo"
                                         className="h-12 w-auto object-contain"
                                     />
                                 </div>
                             </div>
                             <p className="text-gray-400 mb-6">
-                                Founded by Kishore Kaki, Memory Masters is dedicated to empowering students with scientifically-backed memory strategies.
+                                Founded by Kishore Kaki, Memory MASTERS is dedicated to empowering students with scientifically-backed memory strategies.
                             </p>
                             {/* Trust Badges */}
                             <div className="flex flex-wrap gap-2">
@@ -166,8 +166,8 @@ const Footer = () => {
                                     <span className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-lg">📧</span>
                                     <div>
                                         <p className="text-sm text-gray-500">Email</p>
-                                        <a href="mailto:memorymasters.in@gmail.com" className="text-gray-300 hover:text-white transition-colors">
-                                            memorymasters.in@gmail.com
+                                        <a href="mailto:memoryMASTERS.in@gmail.com" className="text-gray-300 hover:text-white transition-colors">
+                                            memoryMASTERS.in@gmail.com
                                         </a>
                                     </div>
                                 </li>
@@ -219,23 +219,20 @@ const Footer = () => {
 
                     {/* Bottom Bar */}
                     <div className="border-t border-gray-800 pt-8">
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div className="text-sm text-center md:text-left">
-                                <p className="text-gray-500 mb-2">
-                                    © 2025 Memory Masters. All rights reserved.
-                                </p>
-                                <p className="flex items-center justify-center md:justify-start gap-2">
-                                    <span className="text-gray-500">Designed and developed by</span>
-                                    <a
-                                        href="https://www.vikrin.com/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-semibold hover:from-purple-500 hover:to-blue-500 transition-all"
-                                    >
-                                        Vikrin
-                                    </a>
-                                </p>
-                            </div>
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-2">
+                            <p className="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-200">
+                                <span>© 2025 Memory MASTERS. All rights reserved.</span>
+                                <span className="hidden md:inline">•</span>
+                                <span>Designed and developed by</span>
+                                <a
+                                    href="https://www.vikrin.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-semibold hover:from-purple-500 hover:to-blue-500 transition-all"
+                                >
+                                    Vikrin
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>

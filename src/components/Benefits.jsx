@@ -107,7 +107,7 @@ const Benefits = () => {
                             </span>
                             <h2 className="text-3xl md:text-4xl font-heading font-bold">
                                 <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                    MEMORY MASTER
+                                    MEMORY MASTERS
                                 </span>
                                 <br />
                                 <span className="text-gray-800">IS YOUR TRANSFORMATIVE SOLUTION TO…</span>

@@ -131,7 +131,7 @@ const Hero = () => {
                                 <br />
                                 <span className="relative inline-block mt-2">
                                     <span className="relative z-10 bg-gradient-to-r from-yellow-300 via-orange-400 to-yellow-300 bg-clip-text text-transparent drop-shadow-lg text-5xl md:text-7xl">
-                                        MASTER
+                                        MASTERS
                                     </span>
                                     <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 blur-2xl opacity-30" />
                                 </span>
@@ -189,7 +189,7 @@ const Hero = () => {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
-                                    🚀 Register Now for Memory Master
+                                    🚀 Register Now for Memory MASTERS
                                 </span>
                                 <motion.div
                                     className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400"

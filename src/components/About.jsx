@@ -34,7 +34,7 @@ const About = () => {
                             <h1 className="text-5xl md:text-6xl font-heading font-black mb-6">
                                 About{' '}
                                 <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                                    Memory Masters
+                                    Memory MASTERS
                                 </span>
                             </h1>
                             <p className="text-xl text-white/80 max-w-3xl mx-auto">
@@ -60,7 +60,7 @@ const About = () => {
                                     </span>
                                 </h2>
                                 <p className="text-lg text-gray-700 leading-relaxed text-center mb-8">
-                                    Founded by Kishore Kaki, Memory Masters is dedicated to empowering students with scientifically-backed memory strategies. Our mission is to transform the way learners approach textbooks, exams, and lifelong knowledge.
+                                    Founded by Kishore Kaki, Memory MASTERS is dedicated to empowering students with scientifically-backed memory strategies. Our mission is to transform the way learners approach textbooks, exams, and lifelong knowledge.
                                 </p>
                             </div>
                         </motion.div>
@@ -118,7 +118,7 @@ const About = () => {
                                         <div className="relative bg-white rounded-2xl p-8 shadow-xl">
                                             <div className="text-6xl text-purple-600 mb-4">"</div>
                                             <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                                                I've seen first-hand how a few simple techniques can turn a struggling student into a confident learner. At Memory Masters we teach those techniques, so every student can experience that 'aha!' moment.
+                                                I've seen first-hand how a few simple techniques can turn a struggling student into a confident learner. At Memory MASTERS we teach those techniques, so every student can experience that 'aha!' moment.
                                             </p>
                                             <div className="flex items-center gap-3">
                                                 <div className="w-12 h-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full" />

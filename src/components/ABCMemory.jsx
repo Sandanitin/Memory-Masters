@@ -196,7 +196,7 @@ const ABCMemory = () => {
                     >
                         <span className="relative z-10 flex items-center justify-center gap-3">
                             <span className="text-2xl">🌟</span>
-                            Join Memory Master!
+                            Join Memory MASTERS!
                         </span>
                         <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-300 to-yellow-400"

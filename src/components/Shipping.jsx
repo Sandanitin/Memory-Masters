@@ -37,7 +37,7 @@ const Shipping = () => {
                         >
                             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                                 <p className="text-gray-700 mb-8 text-lg">
-                                    When you sign up for the Memory Masters workshop, there's no waiting for a box to arrive—everything is digital, so you can start learning the moment you click "Register." Here's how it works:
+                                    When you sign up for the Memory MASTERS workshop, there's no waiting for a box to arrive—everything is digital, so you can start learning the moment you click "Register." Here's how it works:
                                 </p>
 
                                 {/* Instant Access */}
@@ -165,8 +165,8 @@ const Shipping = () => {
                                     <div className="space-y-2 text-gray-700">
                                         <p className="flex items-center gap-2">
                                             <span className="font-semibold">Email:</span>
-                                            <a href="mailto:support@memorymasters.in" className="text-purple-600 hover:text-purple-700">
-                                                support@memorymasters.in
+                                            <a href="mailto:support@memoryMASTERS.in" className="text-purple-600 hover:text-purple-700">
+                                                support@memoryMASTERS.in
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">

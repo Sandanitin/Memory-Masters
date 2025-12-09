@@ -11,7 +11,7 @@ const Testimonials = () => {
             role: 'Board Exam Topper - 92%',
             avatar: '👩‍🎓',
             color: 'from-purple-500 to-indigo-500',
-            text: 'I have always struggled with my studies. It took me long hours to grasp even the easiest of concepts. My 10th boards were nearing and I had no idea how I would pass. Then, my mom enrolled me for Memory Master workshop and that was the breakthrough I needed. With the techniques taught in the workshop and Kimi Mam\'s constant guidance, I secured an unbelievable 92% marks in my board exams!',
+            text: 'I have always struggled with my studies. It took me long hours to grasp even the easiest of concepts. My 10th boards were nearing and I had no idea how I would pass. Then, my mom enrolled me for Memory MASTERS workshop and that was the breakthrough I needed. With the techniques taught in the workshop and Kimi Mam\'s constant guidance, I secured an unbelievable 92% marks in my board exams!',
             rating: 5,
             highlight: '92% in Boards'
         },
@@ -29,7 +29,7 @@ const Testimonials = () => {
             role: 'College Student',
             avatar: '👨‍🎓',
             color: 'from-emerald-500 to-teal-500',
-            text: 'After completing the Memory Master Series, I can now speed-read and retain my answers faster. I have also observed a significant improvement in my weekly college tests. Thank you Kimi Mam and team for such an amazing course.',
+            text: 'After completing the Memory MASTERS Series, I can now speed-read and retain my answers faster. I have also observed a significant improvement in my weekly college tests. Thank you Kimi Mam and team for such an amazing course.',
             rating: 5,
             highlight: 'Speed Reading'
         },

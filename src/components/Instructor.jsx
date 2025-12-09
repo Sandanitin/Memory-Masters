@@ -102,18 +102,8 @@ const Instructor = () => {
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: 0.5, type: "spring" }}
-                                className="absolute -top-4 -right-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-4 py-2 rounded-xl shadow-lg"
-                            >
-                                <span className="font-bold">3.5+ Years</span>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
                                 transition={{ delay: 0.7, type: "spring" }}
-                                className="absolute -bottom-4 -left-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-xl shadow-lg"
+                                className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-xl shadow-lg"
                             >
                                 <span className="font-bold">3rd Std to PG</span>
                             </motion.div>

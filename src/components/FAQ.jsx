@@ -83,8 +83,8 @@ const FAQ = () => {
                                 className="group"
                             >
                                 <div className={`relative overflow-hidden rounded-2xl transition-all duration-500 ${openIndex === index
-                                        ? 'bg-gradient-to-r from-purple-600 to-blue-600 shadow-xl shadow-purple-500/20'
-                                        : 'bg-white shadow-lg hover:shadow-xl'
+                                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 shadow-xl shadow-purple-500/20'
+                                    : 'bg-white shadow-lg hover:shadow-xl'
                                     }`}>
                                     <button
                                         onClick={() => toggleFAQ(index)}
@@ -102,8 +102,8 @@ const FAQ = () => {
                                             animate={{ rotate: openIndex === index ? 180 : 0 }}
                                             transition={{ duration: 0.3 }}
                                             className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${openIndex === index
-                                                    ? 'bg-white/20 text-white'
-                                                    : 'bg-purple-100 text-purple-600'
+                                                ? 'bg-white/20 text-white'
+                                                : 'bg-purple-100 text-purple-600'
                                                 }`}
                                         >
                                             <svg
@@ -161,7 +161,7 @@ const FAQ = () => {
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <motion.a
-                                    href="mailto:info@memorymasters.com"
+                                    href="mailto:info@memoryMASTERS.com"
                                     className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
