@@ -44,20 +44,25 @@ export const sendPaymentReceipt = async (paymentData) => {
             timeZone: 'Asia/Kolkata'
         });
 
-        // Prepare template parameters
+        // Prepare template parameters for EmailJS
+        // Using reply_to for recipient email (required by EmailJS)
         const templateParams = {
-            to_email: paymentData.customerEmail, // Recipient email
+            reply_to: paymentData.customerEmail,  // Recipient email (CRITICAL for EmailJS)
+            to_name: paymentData.customerName,
+            from_name: 'Memory MASTERS',
+            // Customer details for HTML template
             customer_name: paymentData.customerName,
             customer_email: paymentData.customerEmail,
             customer_mobile: paymentData.customerMobile,
-            payment_id: paymentData.paymentId,
-            amount: `₹${paymentData.amount}`,
-            transaction_date: transactionDate,
             standard: paymentData.standard,
-            city: paymentData.city
+            city: paymentData.city,
+            payment_id: paymentData.paymentId,
+            amount: paymentData.amount,
+            transaction_date: transactionDate
         };
 
-        console.log('Template parameters:', templateParams);
+        console.log('Sending email to:', paymentData.customerEmail);
+        console.log('Template ID:', EMAILJS_TEMPLATE_ID);
 
         // Send email using EmailJS
         const response = await emailjs.send(
