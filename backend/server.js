@@ -16,7 +16,11 @@ const PORT = process.env.PORT || 3001;
 app.use(helmet());
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'
-        ? ['https://your-frontend-domain.vercel.app'] // TODO: Update with actual production domain
+        ? [
+            'https://memory-masters-13frontend.vercel.app',
+            'https://memory-masters-h7im.vercel.app',
+            'https://memory-masters-stds.vercel.app'
+        ]
         : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:3001'],
     credentials: true
 }));
