@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import RegistrationModal from './RegistrationModal';
 
 const Hero = () => {
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
     return (
         <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
             {/* Stunning Animated Background */}
@@ -184,6 +186,7 @@ const Hero = () => {
                             className="max-w-md mx-auto lg:mx-0"
                         >
                             <motion.button
+                                onClick={() => setIsRegistrationOpen(true)}
                                 className="w-full relative overflow-hidden bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 text-white font-bold py-4 px-6 rounded-xl text-lg shadow-2xl shadow-orange-500/40"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -351,6 +354,12 @@ const Hero = () => {
                     ))}
                 </motion.div>
             </div>
+
+            {/* Registration Modal */}
+            <RegistrationModal
+                isOpen={isRegistrationOpen}
+                onClose={() => setIsRegistrationOpen(false)}
+            />
         </section>
     );
 };

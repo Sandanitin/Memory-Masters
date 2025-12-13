@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
-import { sendPaymentReceipt } from '../services/emailService';
-import { saveToGoogleSheets } from '../services/sheetsService';
 
 const RegistrationModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
@@ -70,42 +68,59 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                 // Show success message
                 toast.success('Payment successful! Processing your registration...');
 
+                // DEVELOPMENT WORKAROUND: Manually trigger backend processing
+                // In production, configure Razorpay webhook to point to your deployed backend
                 try {
-                    // Send payment receipt email
-                    await sendPaymentReceipt({
-                        customerName: customerName,
-                        customerEmail: formData.email,
-                        customerMobile: formData.mobile,
-                        paymentId: paymentId,
-                        amount: 1,
-                        standard: formData.standard,
-                        city: formData.city
+                    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+
+                    // Simulate webhook payload
+                    const webhookPayload = {
+                        entity: "event",
+                        event: "payment.captured",
+                        payload: {
+                            payment: {
+                                entity: {
+                                    id: paymentId,
+                                    amount: 100, // Amount in paise
+                                    currency: "INR",
+                                    status: "captured",
+                                    email: formData.email,
+                                    contact: `+91${formData.mobile}`,
+                                    notes: {
+                                        firstName: formData.firstName,
+                                        lastName: formData.lastName,
+                                        standard: formData.standard,
+                                        city: formData.city
+                                    }
+                                }
+                            }
+                        }
+                    };
+
+                    // Call backend webhook endpoint
+                    await fetch(`${backendUrl}/api/webhook/razorpay`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(webhookPayload)
                     });
 
-                    toast.success('Payment receipt sent to your email!');
-                } catch (emailError) {
-                    console.error('Error sending email:', emailError);
-                    toast.error('Payment successful, but failed to send email receipt.');
+                    console.log('✅ Backend notified successfully');
+                } catch (error) {
+                    console.error('❌ Failed to notify backend:', error);
+                    // Continue anyway - user still paid
                 }
 
-                try {
-                    // Save to Google Sheets
-                    await saveToGoogleSheets({
-                        firstName: formData.firstName,
-                        lastName: formData.lastName,
-                        email: formData.email,
-                        mobile: formData.mobile,
-                        standard: formData.standard,
-                        city: formData.city,
-                        paymentId: paymentId,
-                        amount: 1
-                    });
+                toast.success('You will receive an email with your Zoom link shortly!', {
+                    duration: 5000,
+                    icon: '📧'
+                });
 
-                    console.log('Payment data saved to Google Sheets');
-                } catch (sheetsError) {
-                    console.error('Error saving to Google Sheets:', sheetsError);
-                    // Don't show error to user as payment was successful
-                }
+                toast.success(`Payment ID: ${paymentId}`, {
+                    duration: 4000,
+                    icon: '✅'
+                });
 
                 // Close modal and reset form after a delay
                 setTimeout(() => {
@@ -126,6 +141,8 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                 contact: formData.mobile
             },
             notes: {
+                first_name: formData.firstName,
+                last_name: formData.lastName,
                 standard: formData.standard,
                 city: formData.city
             },
