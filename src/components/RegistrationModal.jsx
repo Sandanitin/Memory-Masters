@@ -98,7 +98,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                     };
 
                     // Call backend webhook endpoint
-                    await fetch(`${backendUrl}/api/webhook/razorpay`, {
+                    const backendResponse = await fetch(`${backendUrl}/api/webhook/razorpay`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -106,10 +106,31 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                         body: JSON.stringify(webhookPayload)
                     });
 
+                    if (!backendResponse.ok) {
+                        throw new Error(`Backend returned ${backendResponse.status}`);
+                    }
+
                     console.log('✅ Backend notified successfully');
                 } catch (error) {
                     console.error('❌ Failed to notify backend:', error);
-                    // Continue anyway - user still paid
+
+                    // Show user-friendly error notification
+                    toast.error(
+                        '⚠️ Backend connection failed! Your payment was successful, but we could not process your registration automatically. Please contact support with your payment ID.',
+                        {
+                            duration: 8000,
+                            icon: '🔌',
+                            style: {
+                                background: '#FEE2E2',
+                                color: '#991B1B',
+                                border: '2px solid #DC2626'
+                            }
+                        }
+                    );
+
+                    // Also log the backend URL for debugging
+                    console.error('Backend URL:', backendUrl);
+                    console.error('Error details:', error.message);
                 }
 
                 toast.success('You will receive an email with your Zoom link shortly!', {
