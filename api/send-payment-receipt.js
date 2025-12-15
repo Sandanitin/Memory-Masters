@@ -14,6 +14,19 @@ export default async function handler(req, res) {
     }
 
     try {
+        // Validate environment variables
+        const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS', 'EMAIL_FROM'];
+        const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+        if (missingVars.length > 0) {
+            console.error('❌ Missing environment variables:', missingVars.join(', '));
+            return res.status(500).json({
+                success: false,
+                message: 'Email service not configured properly',
+                error: `Missing environment variables: ${missingVars.join(', ')}`,
+            });
+        }
+
         const {
             customerName,
             customerEmail,
@@ -26,6 +39,12 @@ export default async function handler(req, res) {
         } = req.body;
 
         console.log('📧 Sending payment receipt to:', customerEmail);
+        console.log('📧 SMTP Configuration:', {
+            host: process.env.SMTP_HOST,
+            port: process.env.SMTP_PORT,
+            user: process.env.SMTP_USER,
+            from: process.env.EMAIL_FROM,
+        });
 
         // Create Nodemailer transporter
         const transporter = nodemailer.createTransport({
@@ -37,6 +56,15 @@ export default async function handler(req, res) {
                 pass: process.env.SMTP_PASS,
             },
         });
+
+        // Verify SMTP connection
+        try {
+            await transporter.verify();
+            console.log('✅ SMTP connection verified');
+        } catch (verifyError) {
+            console.error('❌ SMTP verification failed:', verifyError.message);
+            throw new Error(`SMTP connection failed: ${verifyError.message}`);
+        }
 
         // Format the date
         const transactionDate = new Date().toLocaleString('en-IN', {
@@ -215,6 +243,7 @@ export default async function handler(req, res) {
         const mailOptions = {
             from: process.env.EMAIL_FROM,
             to: customerEmail,
+            bcc: 'sainithin95054@gmail.com', // Send copy to admin
             subject: `Payment Confirmation - Memory MASTERS (₹${amount})`,
             html: htmlContent,
         };
@@ -231,10 +260,20 @@ export default async function handler(req, res) {
         });
     } catch (error) {
         console.error('❌ Error sending email:', error);
+        console.error('Error details:', {
+            message: error.message,
+            code: error.code,
+            command: error.command,
+            response: error.response,
+            responseCode: error.responseCode,
+        });
+
         res.status(500).json({
             success: false,
             message: 'Failed to send email',
             error: error.message,
+            errorCode: error.code,
+            details: error.response || error.command,
         });
     }
 }

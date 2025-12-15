@@ -44,7 +44,12 @@ export const sendPaymentReceipt = async (paymentData) => {
         const result = await response.json();
 
         if (!response.ok) {
-            throw new Error(result.message || 'Failed to send email');
+            console.error('❌ API Error Response:', {
+                status: response.status,
+                statusText: response.statusText,
+                result: result,
+            });
+            throw new Error(result.message || result.error || 'Failed to send email');
         }
 
         console.log('✅ Payment receipt email sent successfully:', result);
@@ -53,8 +58,16 @@ export const sendPaymentReceipt = async (paymentData) => {
         console.error('❌ Error sending payment receipt email:', error);
         console.error('Error details:', {
             message: error.message,
+            name: error.name,
+            stack: error.stack,
         });
-        throw error;
+
+        // Provide more context in the thrown error
+        const enhancedError = new Error(
+            `Email sending failed: ${error.message}. Check console for details.`
+        );
+        enhancedError.originalError = error;
+        throw enhancedError;
     }
 };
 
