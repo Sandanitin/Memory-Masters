@@ -10,6 +10,7 @@ const GOOGLE_SHEETS_URL = import.meta.env.VITE_GOOGLE_SHEETS_URL;
  * @param {string} paymentData.email - Customer's email
  * @param {string} paymentData.mobile - Customer's mobile number
  * @param {string} paymentData.standard - Student's standard/grade
+ * @param {string} paymentData.instituteName - Name of institute/school/college
  * @param {string} paymentData.city - Customer's city
  * @param {string} paymentData.paymentId - Razorpay payment ID
  * @param {number} paymentData.amount - Payment amount
@@ -29,6 +30,7 @@ export const saveToGoogleSheets = async (paymentData) => {
             customerEmail: paymentData.email,
             customerMobile: paymentData.mobile,
             standard: paymentData.standard,
+            instituteName: paymentData.instituteName,
             city: paymentData.city,
             paymentId: paymentData.paymentId,
             amount: paymentData.amount,

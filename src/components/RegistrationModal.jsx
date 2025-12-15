@@ -11,6 +11,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         email: '',
         mobile: '',
         standard: 'Grade 1st - 7th',
+        instituteName: '',
         city: ''
     });
 
@@ -26,7 +27,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         e.preventDefault();
 
         // Validation
-        if (!formData.firstName || !formData.lastName || !formData.email || !formData.mobile || !formData.city) {
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.mobile || !formData.instituteName || !formData.city) {
             toast.error('Please fill in all required fields');
             return;
         }
@@ -79,6 +80,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                         paymentId: paymentId,
                         amount: 1,
                         standard: formData.standard,
+                        instituteName: formData.instituteName,
                         city: formData.city
                     });
 
@@ -96,6 +98,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                         email: formData.email,
                         mobile: formData.mobile,
                         standard: formData.standard,
+                        instituteName: formData.instituteName,
                         city: formData.city,
                         paymentId: paymentId,
                         amount: 1
@@ -116,6 +119,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                         email: '',
                         mobile: '',
                         standard: 'Grade 1st - 7th',
+                        instituteName: '',
                         city: ''
                     });
                 }, 2000);
@@ -296,6 +300,22 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                                                     </label>
                                                 ))}
                                             </div>
+                                        </div>
+
+                                        {/* Institute/School/College Name */}
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Name of Institute/School/College<span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="instituteName"
+                                                value={formData.instituteName}
+                                                onChange={handleChange}
+                                                placeholder="Enter your institute/school/college name"
+                                                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+                                                required
+                                            />
                                         </div>
 
                                         {/* City */}

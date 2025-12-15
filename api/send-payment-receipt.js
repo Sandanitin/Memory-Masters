@@ -31,6 +31,7 @@ export default async function handler(req, res) {
             paymentId,
             amount,
             standard,
+            instituteName,
             city,
         } = req.body;
 
@@ -67,6 +68,7 @@ export default async function handler(req, res) {
             .replace(/{{Amount}}/g, amount)
             .replace(/{{TransactionDate}}/g, transactionDate)
             .replace(/{{Standard}}/g, standard)
+            .replace(/{{InstituteName}}/g, instituteName || '')
             .replace(/{{City}}/g, city)
             .replace(/{{WhatsAppLink}}/g, process.env.WHATSAPP_LINK || '#')
             .replace(/{{SupportEmail}}/g, process.env.SUPPORT_EMAIL || 'support@memorymasters.com');

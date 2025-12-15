@@ -7,6 +7,7 @@
  * @param {string} paymentData.paymentId - Razorpay payment ID
  * @param {number} paymentData.amount - Payment amount
  * @param {string} paymentData.standard - Student's standard/grade
+ * @param {string} paymentData.instituteName - Name of institute/school/college
  * @param {string} paymentData.city - Customer's city
  * @returns {Promise} API response
  */
@@ -35,6 +36,7 @@ export const sendPaymentReceipt = async (paymentData) => {
                 paymentId: paymentData.paymentId,
                 amount: paymentData.amount,
                 standard: paymentData.standard,
+                instituteName: paymentData.instituteName,
                 city: paymentData.city,
             }),
         });
