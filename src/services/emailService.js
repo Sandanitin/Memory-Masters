@@ -12,14 +12,18 @@
  */
 export const sendPaymentReceipt = async (paymentData) => {
     try {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
-
-        console.log('📧 Sending email via backend API...');
-        console.log('Backend URL:', backendUrl);
+        console.log('📧 Sending email via API...');
         console.log('Recipient:', paymentData.customerEmail);
 
-        // Send request to backend API
-        const response = await fetch(`${backendUrl}/api/send-payment-receipt`, {
+        // Use backend URL for local dev, relative path for production
+        const apiUrl = import.meta.env.VITE_BACKEND_URL
+            ? `${import.meta.env.VITE_BACKEND_URL}/api/send-payment-receipt`
+            : '/api/send-payment-receipt';
+
+        console.log('API URL:', apiUrl);
+
+        // Send request to API
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
