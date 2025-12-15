@@ -19,8 +19,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Backend (archived)
-backend/
-
 # Vercel
 .vercel
