@@ -47,10 +47,13 @@ export default async function handler(req, res) {
         });
 
         // Create Nodemailer transporter
+        const smtpPort = parseInt(process.env.SMTP_PORT || '587');
+        const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
+
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: false, // true for 465, false for other ports
+            port: smtpPort,
+            secure: smtpSecure, // true for 465 (SSL), false for 587 (TLS)
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,

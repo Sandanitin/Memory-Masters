@@ -9,8 +9,9 @@ const testPaymentData = {
     customerEmail: "sainithin95054@gmail.com", // Change to your email
     customerMobile: "9876543210",
     paymentId: "pay_test_" + Date.now(),
-    amount: "99",
+    amount: "1",
     standard: "10th Grade",
+    instituteName: "Test Institute",
     city: "Hyderabad"
 };
 
